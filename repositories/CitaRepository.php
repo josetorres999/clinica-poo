@@ -32,10 +32,11 @@
         }
 
         public function delete($id){
-            $db = new Database();
+            $db = new Database;
 
             $query = $db->conexion->prepare("DELETE FROM citas WHERE id=:id");
             $query->bindParam(':id',$id);
+
             $query->execute();
         }
     }

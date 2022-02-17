@@ -55,16 +55,11 @@
         }
 
         public function borrar(){
-            $citaRepository = new CitaRepository();
-
             if(isset($_GET['id'])){
-                $id = $_GET['id'];
-                $citaRepository->delete($id);
-
-                header("Location: ".base_url."cita/mostrar");
+                $citaRepository = new CitaRepository();
+                $citaRepository->delete($_GET['id']);
             }else{
-                echo("Error");
-                var_dump($_GET['id']);
+                echo("No se pudo borrar");
             }
         }
     }
